@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT publications (book*)>
+<!ELEMENT book (title, author+, copyright, publisher, isbn, description?)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT author (#PCDATA)>
+<!ELEMENT copyright (#PCDATA)>
+<!ELEMENT publisher (#PCDATA)>
+<!ELEMENT isbn (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+<!ATTLIST book id ID #REQUIRED image CDATA #IMPLIED>
+<!ATTLIST isbn kind (10|13) #REQUIRED >

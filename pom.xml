@@ -1,0 +1,58 @@
+<project>
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>es.cristobal</groupId>
+  <artifactId>xmlParser</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <scm>
+    <connection>scm:git:https://github.com/cristobalc/xml_parser_maven_git</connection>
+    <developerConnection>scm:git:https://github.com/cristobalc/xml_parser_maven_git</developerConnection>
+    <url>scm:git:https://github.com/cristobalc/xml_parser_maven_git</url>
+  </scm>
+
+  <build>
+    <defaultGoal>deploy</defaultGoal>
+
+    <plugins>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3.2</version>
+        <configuration>
+          <maxmem>512m</maxmem>
+          <target>1.6</target>
+          <source>1.6</source>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-scm-plugin</artifactId>
+        <version>1.8.1</version>
+        <configuration>
+          <connectionType>developerConnection</connectionType>
+          <message>Maven commit</message>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.4</version>
+        <configuration>
+          <descriptorRefs>
+            <descriptorRef>bin</descriptorRef>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+            <descriptorRef>src</descriptorRef>
+            <descriptorRef>project</descriptorRef>
+          </descriptorRefs>
+        </configuration>
+      </plugin>
+
+    </plugins>
+
+  </build>
+
+</project>
+

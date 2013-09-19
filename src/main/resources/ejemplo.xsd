@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:extras="http://xml.dzone.org/schema/publications"
+attributeFormDefault="unqualified" elementFormDefault="unqualified"
+xmlns="http://xml.dzone.org/schema/publications"
+targetNamespace="http://xml.dzone.org/schema/publications" version="4">
+
+	<xs:element name="miElemento" type="xs:double"/>
+	
+	<xs:element name="publications">
+		<xs:complexType>
+		<xs:sequence>
+		<xs:element minOccurs="0" maxOccurs="unbounded" ref="book"/>
+		</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="book">
+		<xs:complexType>
+		<xs:sequence>
+		<xs:element ref="title"/>
+		<xs:element minOccurs="1" maxOccurs="unbounded" ref="author"/>
+		<xs:element ref="copyright"/>
+		<xs:element ref="publisher"/>
+		<xs:element ref="isbn"/>
+		<xs:element minOccurs="0" ref="description"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="attlist.book"/>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="title" type="xs:string"/>
+	<xs:element name="author" type="xs:string"/>
+	<xs:element name="copyright" type="xs:string"/>
+	<xs:element name="publisher" type="xs:string"/>
+	
+	<xs:element name="isbn">
+		<xs:complexType mixed="true">
+		<xs:attributeGroup ref="attlist.isbn"/>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="description" type="xs:string"/>
+	
+	<xs:attributeGroup name="attlist.book">
+		<xs:attribute name="id" use="required" type="xs:ID"/>
+		<xs:attribute name="image"/>
+	</xs:attributeGroup>
+	
+	<xs:attributeGroup name="attlist.isbn">
+		<xs:attribute name="kind" use="required">
+		<xs:simpleType>
+		<xs:restriction base="xs:token">
+		<xs:enumeration value="10"/>
+		<xs:enumeration value="13"/>
+		</xs:restriction>
+		</xs:simpleType>
+		</xs:attribute>
+	</xs:attributeGroup>
+	
+</xs:schema>
